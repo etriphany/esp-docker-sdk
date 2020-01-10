@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+
+  espsdk:
+    image: etriphany/espsdk
+    build: .
+    container_name: espsdk
+    stdin_open: true
+    tty: true
+    privileged: true
+    user: "root"
+    volumes:
+      - type: bind
+        source: ./project
+        target: /home/user/project
