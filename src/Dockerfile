@@ -1,4 +1,4 @@
-FROM        alpine:3.5
+FROM        alpine:latest
 
 LABEL       maintainer             "etriphany.com"
 
@@ -7,13 +7,13 @@ ENV         PACKAGES               "make python"
 ENV         TMP_PACKAGES           "py-pip"
 
 # SDK Requirements
-ENV         GLIBC_VER               "2.25-r0"
+ENV         GLIBC_VER               "2.33-r0"
 ENV         GLIBC_PACKAGES_URI      "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VER}"
 ENV         GLIBC_PACKAGES          "glibc-${GLIBC_VER}.apk glibc-bin-${GLIBC_VER}.apk"
 
 # SDK Components
-ENV         ESP_TOOL               "esptool"
-ENV         ESP_SDK_URI            "https://github.com/espressif/ESP8266_NONOS_SDK/archive/v3.0.1.tar.gz"
+ENV         ESP_TOOL               "esptool==2.5.0"
+ENV         ESP_SDK_URI            "https://github.com/espressif/ESP8266_NONOS_SDK/archive/v3.0.4.tar.gz"
 ENV         XTENSA_TOOLCHAIN       "xtensa_tc.tar.xz"
 
 
