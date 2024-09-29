@@ -3,7 +3,7 @@ version: '3.2'
 services:
 
   espsdk:
-    image: docker.pkg.github.com/etriphany/esp-docker-sdk/espsdk:v1.1.0
+    image: ghcr.io/etriphany/esp-docker-sdk/espsdk:v1.1.0
     build: .
     container_name: espsdk
     stdin_open: true
