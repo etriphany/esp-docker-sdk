@@ -30,26 +30,35 @@ The container uses a `bind mount` that points to the folder `project`.
 So to access any project inside the container, just create a symbolic link to this folder:
 
 ```sh
-  $ ln -s /path/to/your/project project
+  cd src
+  ln -s /path/to/your/project project
 ```
 
 Now you can
 
 #### Start the container
 ```sh
-  $ docker-compose up -d
+  docker pull ghcr.io/etriphany/esp-docker-sdk/espsdk:v1.1.0
+  docker compose up -d
 ```
 
 #### Access the container
 
 ```sh
-$ docker-compose exec espsdk /bin/sh
+  docker compose exec espsdk /bin/sh
+```
+
+### Compile your project
+
+```sh
+  cd project
+  make
 ```
 
 #### Stop the container
 ```sh
-$ CTRL+D
-$ docker-compose stop
+  CTRL+D
+  docker compose stop
 ```
 
 
@@ -62,7 +71,7 @@ $ docker-compose stop
 Example:
 
  ```sh
- $ esptool.py --chip esp8266 --before no_reset {YOUR COMMAND}
+   esptool.py --chip esp8266 --before no_reset {YOUR COMMAND}
  ```
 
 > Now after executing a Make command, simply do the manual reset (by pushing Flash/Reset) and everything will work like a charm!
